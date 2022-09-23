@@ -1,0 +1,8 @@
+#carouselWithCaptions {
+    display: flex;
+    justify-content: center;
+}
+
+#carouse-container {
+    width: 70%;
+}
