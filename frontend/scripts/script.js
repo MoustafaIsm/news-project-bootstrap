@@ -1,6 +1,8 @@
 // Variables
 const carouseContainer = document.getElementById("carouse-container");
-
+const articleOfTheDay = document.getElementById("article-of-the-day");
+const impotArticles = document.getElementById("import-articles");
+const miniArticles = document.getElementById("mini-articles");
 
 // Functions
 
@@ -36,6 +38,36 @@ const fillCarouses = (container) => {
     });
 }
 
+const fillNormalArticles = () => {
+    $.getJSON("http://localhost/SEF/news-project-bootstrap/backend/get_normal_articles.php", function (data) {
+        for (const article of data.articles) {
+            if (article.type == "mini") {
+                miniArticles.innerHTML += `
+                <div class="row article">
+                    <p class="title">${article.title}</p>
+                    <p class="content">${article.content}</p>
+                    <p class="author">${article.author}</p>
+                </div>`;
+            } else if (article.type == "important") {
+                impotArticles.innerHTML += `
+                <div class="col-4 article">
+                    <p class="title">${article.title}</p>
+                    <p class="content">${article.content}</p>
+                    <p class="author">${article.author}</p>
+                </div>`;
+            } else if (article.type == "main") {
+                articleOfTheDay.innerHTML += `
+                <div class="article">
+                    <p class="title">${article.title}</p>
+                    <p class="content">${article.content}</p>
+                    <p class="author">${article.author}</p>
+                </div>`;
+            }
+        }
+    });
+}
+
 fillCarouses(carouseContainer);
+fillNormalArticles();
 
 

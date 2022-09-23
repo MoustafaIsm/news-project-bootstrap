@@ -1,8 +1,42 @@
 #carouselWithCaptions {
     display: flex;
     justify-content: center;
+    margin-top: 50px;
 }
 
 #carouse-container {
-    width: 70%;
+    width: 60%;
+    height: 75vh;
+}
+
+.article {
+    text-align: center;
+    border: 2px solid #212529;
+}
+
+.title {
+    font-weight: bold;
+}
+
+.author {
+    color: gainsboro
+}
+
+@media screen and (max-width:1100px) {
+    #carouse-container {
+        height: 50vh;
+    }
+}
+
+@media screen and (max-width:800px) {
+    #carouse-container {
+        height: 40vh;
+    }
+}
+
+@media screen and (max-width:400px) {
+    #carouse-container {
+        width: 70%;
+        height: 35vh;
+    }
 }
